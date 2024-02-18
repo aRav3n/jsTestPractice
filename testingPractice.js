@@ -23,3 +23,44 @@ export function reverseString(inputString) {
 
   return returnString;
 }
+
+function calculatorFactory() {
+  function verifyArgumentsAreNumbers(numberOne, numberTwo) {
+    if (typeof numberOne !== "number" || typeof numberTwo !== "number") {
+      return false;
+    }
+    return true;
+  }
+
+  function add(numberOne, numberTwo) {
+    if (verifyArgumentsAreNumbers(numberOne, numberTwo)) {
+      return numberOne + numberTwo;
+    }
+    return null;
+  }
+
+  function subtract(numberOne, numberTwo) {
+    if (verifyArgumentsAreNumbers(numberOne, numberTwo)) {
+      return numberOne - numberTwo;
+    }
+    return null;
+  }
+
+  function multiply(numberOne, numberTwo) {
+    if (verifyArgumentsAreNumbers(numberOne, numberTwo)) {
+      return numberOne * numberTwo;
+    }
+    return null;
+  }
+
+  function divide(numberOne, numberTwo) {
+    if (verifyArgumentsAreNumbers(numberOne, numberTwo)) {
+      return numberOne / numberTwo;
+    }
+    return null;
+  }
+
+  return { add, subtract, multiply, divide };
+}
+
+export const calculator = calculatorFactory();
