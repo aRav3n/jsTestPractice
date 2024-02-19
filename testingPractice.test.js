@@ -63,3 +63,19 @@ test("Caesar Cipher of Andy shifted by 25 is Zmcx", () => {
 test("Caesar Cipher of bottle shifted by 26 is bottle", () => {
   expect(caesarCipher("bottle", 26)).toBe("bottle");
 });
+
+test("average of array of 1 through 5 is 3", () => {
+  expect(analyzeArray([1, 2, 3, 4, 5]).average).toEqual(3);
+});
+
+test("min of array of 7 through 10 is 7", () => {
+  expect(analyzeArray([7, 8, 9, 10]).min).toEqual(7);
+});
+
+test("max of array of -3 through 0 is 0", () => {
+  expect(analyzeArray([-3, -2, -1, 0]).max).toEqual(0);
+});
+
+test("length of array of 1 through 7 is 7", () => {
+  expect(analyzeArray([1, 2, 3, 4, 5, 6, 7]).length).toEqual(7);
+});
