@@ -64,3 +64,35 @@ function calculatorFactory() {
 }
 
 export const calculator = calculatorFactory();
+
+export function caesarCipher(string, shiftFactor) {
+  const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  let returnString = "";
+  for (let i = 0; i < lowerCaseAlphabet.length; i++) {
+    upperCaseAlphabet.push(lowerCaseAlphabet[i].toUpperCase());
+  }
+  const maxIndex = lowerCaseAlphabet.length - 1;
+
+  const updateReturnString = function pushNewCharToReturnString(
+    letterArray,
+    charToCipher
+  ) {
+    const newLetterIndex =
+      (letterArray.indexOf(charToCipher) + shiftFactor) % letterArray.length;
+    returnString += letterArray[newLetterIndex];
+  };
+
+  for (let i = 0; i < string.length; i++) {
+    const char = string.charAt(i);
+    if (lowerCaseAlphabet.includes(char)) {
+      updateReturnString(lowerCaseAlphabet, char);
+    } else if (upperCaseAlphabet.includes(char)) {
+      updateReturnString(upperCaseAlphabet, char);
+    } else {
+      returnString += char;
+    }
+  }
+
+  return returnString;
+}

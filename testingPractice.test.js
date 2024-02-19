@@ -51,3 +51,15 @@ test("3 * 6 = 18", () => {
 test("21 / 3 = 7", () => {
   expect(calculator.divide(21, 3)).toEqual(7);
 });
+
+test("Caesar Cipher of apple shifted by 1 is bqqmf", () => {
+  expect(caesarCipher("apple", 1)).toBe("bqqmf");
+});
+
+test("Caesar Cipher of Andy shifted by 25 is Zmcx", () => {
+  expect(caesarCipher("Andy", 25)).toBe("Zmcx");
+});
+
+test("Caesar Cipher of bottle shifted by 26 is bottle", () => {
+  expect(caesarCipher("bottle", 26)).toBe("bottle");
+});
